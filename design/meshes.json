@@ -1,0 +1,13 @@
+{
+  "sheet": "meshes",
+  "about": "World objects the mod spawns. Paths must come from the player's own game archives (WolvenKit/RED4ext dump), never copied into the repo.",
+  "columns": {
+    "id":         {"type": "string", "required": true},
+    "entityPath": {"type": "string", "required": true, "needsVerify": true, "note": "vanilla .ent (or ArchiveXL .ent) that renders a 1m cube"},
+    "sizeMetres": {"type": "number", "required": true},
+    "collision":  {"type": "bool",   "required": true}
+  },
+  "rows": [
+    {"id": "cube_unit", "entityPath": null, "sizeMetres": 1.0, "collision": true, "_verified": []}
+  ]
+}

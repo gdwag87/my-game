@@ -1,0 +1,20 @@
+{
+  "sheet": "controls",
+  "about": "Player inputs. redscript reads the game's own actions; the CET Lua reads the result. Unknown action names are logged on first run (discovery mode).",
+  "columns": {
+    "id":         {"type": "string", "required": true},
+    "gameAction": {"type": "string", "required": true, "needsVerify": true, "note": "vanilla input action name"},
+    "binding":    {"type": "string", "required": true, "note": "what the player presses by default"},
+    "effect":     {"type": "string", "required": true, "ref": "hooks.id"}
+  },
+  "rows": [
+    {"id": "break",       "gameAction": null,           "binding": "left mouse (hold)",  "effect": "input_action", "_verified": []},
+    {"id": "place",       "gameAction": null,           "binding": "right mouse",        "effect": "input_action", "_verified": []},
+    {"id": "scroll_next", "gameAction": "NextWeapon",   "binding": "mouse wheel down",   "effect": "input_action", "_verified": []},
+    {"id": "scroll_prev", "gameAction": "PreviousWeapon","binding": "mouse wheel up",    "effect": "input_action", "_verified": []},
+    {"id": "slot_1",      "gameAction": "WeaponSlot1",  "binding": "1",                  "effect": "input_action", "_verified": []},
+    {"id": "slot_2",      "gameAction": "WeaponSlot2",  "binding": "2",                  "effect": "input_action", "_verified": []},
+    {"id": "slot_3",      "gameAction": "WeaponSlot3",  "binding": "3",                  "effect": "input_action", "_verified": []},
+    {"id": "slot_4",      "gameAction": "WeaponSlot4",  "binding": "4",                  "effect": "input_action", "_verified": []}
+  ]
+}

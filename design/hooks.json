@@ -1,0 +1,20 @@
+{
+  "sheet": "hooks",
+  "about": "Every place the mod touches the game. Verified means seen working in the running game.",
+  "columns": {
+    "id":      {"type": "string", "required": true},
+    "layer":   {"type": "string", "required": true, "note": "cet | redscript"},
+    "api":     {"type": "string", "required": true, "needsVerify": true},
+    "purpose": {"type": "string", "required": true}
+  },
+  "rows": [
+    {"id": "input_action",    "layer": "redscript", "api": "@wrapMethod(PlayerPuppet) OnAction + ListenerAction.GetName", "purpose": "read mouse/keys the game already binds", "_verified": []},
+    {"id": "player_health",   "layer": "cet", "api": "Game.GetStatPoolsSystem():GetStatPoolValue(id, gamedataStatPoolType.Health, true)", "purpose": "feed the hearts", "_verified": []},
+    {"id": "camera_ray",      "layer": "cet", "api": "Game.GetCameraSystem():GetActiveCameraForward() + Game.GetSpatialQueriesSystem():SyncRaycastByCollisionGroup", "purpose": "find what the player looks at", "_verified": []},
+    {"id": "spawn_block",     "layer": "cet", "api": "exEntitySpawner.Spawn(entityPath, transform, appearance)", "purpose": "put a cube in the world", "_verified": []},
+    {"id": "despawn_block",   "layer": "cet", "api": "exEntitySpawner.Despawn(entity)", "purpose": "break a placed block", "_verified": []},
+    {"id": "look_at_object",  "layer": "cet", "api": "Game.GetTargetingSystem():GetLookAtObject(player,false,false)", "purpose": "recognise a breakable prop", "_verified": []},
+    {"id": "inventory_state", "layer": "cet", "api": "mod-local Lua table", "purpose": "hotbar contents, selected slot", "_verified": []},
+    {"id": "hide_vanilla_hud","layer": "redscript", "api": null, "purpose": "hide Cyberpunk's own HUD so the Minecraft one replaces it", "_verified": []}
+  ]
+}

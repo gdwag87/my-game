@@ -1,0 +1,17 @@
+{
+  "sheet": "breakables",
+  "about": "Loose props already in Night City that the player can break. The city's fixed geometry is never removed.",
+  "columns": {
+    "id":           {"type": "string", "required": true},
+    "matchKind":    {"type": "string", "required": true, "note": "how a looked-at object is recognised: className | nameContains"},
+    "matchValue":   {"type": "string", "required": true, "needsVerify": true},
+    "breakSeconds": {"type": "number", "required": true},
+    "drops":        {"type": "string", "ref": "items.id", "required": true},
+    "dropCount":    {"type": "int",    "required": true}
+  },
+  "rows": [
+    {"id": "crate",     "matchKind": "nameContains", "matchValue": null, "breakSeconds": 1.0, "drops": "planks", "dropCount": 2, "_verified": []},
+    {"id": "trash_can", "matchKind": "nameContains", "matchValue": null, "breakSeconds": 0.8, "drops": "scrap",  "dropCount": 2, "_verified": []},
+    {"id": "barrel",    "matchKind": "nameContains", "matchValue": null, "breakSeconds": 1.2, "drops": "scrap",  "dropCount": 3, "_verified": []}
+  ]
+}

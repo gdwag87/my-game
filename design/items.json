@@ -1,0 +1,19 @@
+{
+  "sheet": "items",
+  "columns": {
+    "id":        {"type": "string", "required": true},
+    "name":      {"type": "string", "required": true},
+    "stackMax":  {"type": "int",    "required": true},
+    "places":    {"type": "string", "ref": "blocks.id", "required": false},
+    "color":     {"type": "rgb",    "required": true, "note": "flat icon colour in the hotbar for v1"}
+  },
+  "rows": [
+    {"id": "stone",    "name": "Stone",         "stackMax": 64, "places": "stone",    "color": [125,125,125]},
+    {"id": "dirt",     "name": "Dirt",          "stackMax": 64, "places": "dirt",     "color": [134,96,67]},
+    {"id": "planks",   "name": "Planks",        "stackMax": 64, "places": "planks",   "color": [162,130,78]},
+    {"id": "glass",    "name": "Glass",         "stackMax": 64, "places": "glass",    "color": [175,220,230]},
+    {"id": "concrete", "name": "Concrete",      "stackMax": 64, "places": "concrete", "color": [90,92,98]},
+    {"id": "neon",     "name": "Neon Block",    "stackMax": 64, "places": "neon",     "color": [255,40,160]},
+    {"id": "scrap",    "name": "Scrap Metal",   "stackMax": 64, "places": null,       "color": [150,150,160]}
+  ]
+}

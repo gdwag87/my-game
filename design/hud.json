@@ -1,0 +1,17 @@
+{
+  "sheet": "hud",
+  "about": "Minecraft-style overlay drawn by Cyber Engine Tweaks ImGui. v1 uses flat colours, no textures.",
+  "columns": {
+    "id":      {"type": "string", "required": true},
+    "anchor":  {"type": "string", "required": true},
+    "slots":   {"type": "int",    "required": true},
+    "sizePx":  {"type": "int",    "required": true},
+    "source":  {"type": "string", "required": true, "ref": "hooks.id"}
+  },
+  "rows": [
+    {"id": "hotbar",    "anchor": "bottom-center", "slots": 9,  "sizePx": 48, "source": "inventory_state"},
+    {"id": "hearts",    "anchor": "above-hotbar-left", "slots": 10, "sizePx": 20, "source": "player_health"},
+    {"id": "crosshair", "anchor": "center", "slots": 1, "sizePx": 16, "source": "inventory_state"},
+    {"id": "break_bar", "anchor": "below-crosshair", "slots": 1, "sizePx": 60, "source": "inventory_state"}
+  ]
+}
