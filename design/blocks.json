@@ -1,0 +1,20 @@
+{
+  "sheet": "blocks",
+  "about": "Blocks the player can place and break. Each needs a spawnable look: one appearance on the cube entity.",
+  "columns": {
+    "id":           {"type": "string", "required": true},
+    "name":         {"type": "string", "required": true},
+    "mesh":         {"type": "string", "ref": "meshes.id", "required": true},
+    "appearance":   {"type": "string", "required": true, "needsVerify": true, "note": "appearance name on the cube entity giving this look"},
+    "breakSeconds": {"type": "number", "required": true},
+    "drops":        {"type": "string", "ref": "items.id", "required": true}
+  },
+  "rows": [
+    {"id": "stone",    "name": "Stone",      "mesh": "cube_unit", "appearance": null, "breakSeconds": 1.5, "drops": "stone",    "_verified": []},
+    {"id": "dirt",     "name": "Dirt",       "mesh": "cube_unit", "appearance": null, "breakSeconds": 0.75,"drops": "dirt",     "_verified": []},
+    {"id": "planks",   "name": "Planks",     "mesh": "cube_unit", "appearance": null, "breakSeconds": 1.0, "drops": "planks",   "_verified": []},
+    {"id": "glass",    "name": "Glass",      "mesh": "cube_unit", "appearance": null, "breakSeconds": 0.4, "drops": "glass",    "_verified": []},
+    {"id": "concrete", "name": "Concrete",   "mesh": "cube_unit", "appearance": null, "breakSeconds": 2.0, "drops": "concrete", "_verified": []},
+    {"id": "neon",     "name": "Neon Block", "mesh": "cube_unit", "appearance": null, "breakSeconds": 0.6, "drops": "neon",     "_verified": []}
+  ]
+}
