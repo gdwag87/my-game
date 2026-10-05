@@ -1,0 +1,10 @@
+{
+  "_columns": "every point where the pack touches Minecraft",
+  "rows": [
+    {"id": "load",  "kind": "function tag", "tag": "minecraft:load", "calls": "ron:load"},
+    {"id": "tick",  "kind": "function tag", "tag": "minecraft:tick", "calls": "ron:tick"},
+    {"id": "use",   "kind": "scoreboard criterion", "objective": "ron.use", "calls": "ron:trigger"},
+    {"id": "item",  "kind": "item components", "item_model": "ron:rifle", "custom_data": "{ron_weapon:\"rifle\"}"},
+    {"id": "hud",   "kind": "actionbar", "calls": "ron:hud"}
+  ]
+}

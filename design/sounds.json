@@ -1,0 +1,12 @@
+{
+  "_columns": "one row per sound cue; vanilla sounds only (no third-party audio ships in this pack)",
+  "rows": [
+    {"id": "fire",         "sound": "minecraft:entity.firework_rocket.blast", "source": "player", "volume": 3.0, "pitch": 1.6},
+    {"id": "dry",          "sound": "minecraft:block.dispenser.fail",         "source": "player", "volume": 1.0, "pitch": 1.8},
+    {"id": "reload_start", "sound": "minecraft:item.crossbow.loading_start",  "source": "player", "volume": 1.0, "pitch": 1.0},
+    {"id": "reload_end",   "sound": "minecraft:item.crossbow.loading_end",    "source": "player", "volume": 1.0, "pitch": 0.9},
+    {"id": "hit",          "sound": "minecraft:entity.arrow.hit_player",      "source": "player", "volume": 1.0, "pitch": 1.4},
+    {"id": "mode",         "sound": "minecraft:ui.button.click",              "source": "player", "volume": 1.0, "pitch": 1.5},
+    {"id": "impact",       "sound": "minecraft:block.stone.hit",              "source": "block",  "volume": 1.0, "pitch": 1.2}
+  ]
+}

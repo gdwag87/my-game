@@ -1,0 +1,9 @@
+{
+  "_columns": "one row per HUD state; shown on the action bar only while the rifle is in the main hand",
+  "rows": [
+    {"state": "ready",     "when": "reload==0 and ammo>5", "text": "MODE | ammo / mag", "ammo_color": "white"},
+    {"state": "low",       "when": "reload==0 and 1<=ammo<=5", "text": "MODE | ammo / mag", "ammo_color": "red"},
+    {"state": "empty",     "when": "reload==0 and ammo==0", "text": "EMPTY - right-click to reload", "ammo_color": "red"},
+    {"state": "reloading", "when": "reload>0", "text": "RELOADING", "ammo_color": "gold"}
+  ]
+}

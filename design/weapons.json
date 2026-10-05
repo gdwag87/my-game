@@ -1,0 +1,25 @@
+{
+  "_columns": "one row per weapon; every cell must be filled",
+  "rows": [
+    {
+      "id": "rifle",
+      "name": "Tactical Rifle",
+      "base_item": "minecraft:carrot_on_a_stick",
+      "item_model": "ron:rifle",
+      "mag_size": 30,
+      "reload_ticks": 40,
+      "damage": 7,
+      "range_blocks": 60,
+      "cooldown_semi": 4,
+      "burst_cooldown": 10,
+      "recoil_pitch_tenths": 8,
+      "snd_fire": "fire",
+      "snd_dry": "dry",
+      "snd_reload_start": "reload_start",
+      "snd_reload_end": "reload_end",
+      "snd_hit": "hit",
+      "snd_mode": "mode",
+      "snd_impact": "impact"
+    }
+  ]
+}

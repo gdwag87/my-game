@@ -1,0 +1,13 @@
+{
+  "_columns": "one row per objective",
+  "rows": [
+    {"id": "ron.use",    "criteria": "minecraft.used:minecraft.carrot_on_a_stick", "purpose": "right-click detection",  "reset_each_use": true},
+    {"id": "ron.ammo",   "criteria": "dummy", "purpose": "rounds in magazine (per player)", "reset_each_use": false},
+    {"id": "ron.mode",   "criteria": "dummy", "purpose": "fire mode 0=SEMI 1=BURST",        "reset_each_use": false},
+    {"id": "ron.cd",     "criteria": "dummy", "purpose": "ticks until next shot allowed",    "reset_each_use": false},
+    {"id": "ron.reload", "criteria": "dummy", "purpose": "reload ticks remaining",           "reset_each_use": false},
+    {"id": "ron.burst",  "criteria": "dummy", "purpose": "burst sequence ticks remaining",   "reset_each_use": false},
+    {"id": "ron.tmp",    "criteria": "dummy", "purpose": "ray state (#hit, #range)",         "reset_each_use": false},
+    {"id": "ron.const",  "criteria": "dummy", "purpose": "constants generated from weapons sheet", "reset_each_use": false}
+  ]
+}

@@ -1,0 +1,7 @@
+# action bar: fire mode + ammo. Runs as the player holding the rifle.
+execute if score @s ron.reload matches 1.. run return run title @s actionbar [{"text":"RELOADING ","color":"gold","bold":true},{"text":"...","color":"gray"}]
+execute if score @s ron.ammo matches ..0 run return run title @s actionbar [{"text":"EMPTY ","color":"red","bold":true},{"text":"- right-click to reload","color":"gray"}]
+execute if score @s ron.mode matches 0 if score @s ron.ammo matches 6.. run return run title @s actionbar [{"text":"SEMI","color":"yellow","bold":true},{"text":"  |  ","color":"dark_gray"},{"score":{"name":"@s","objective":"ron.ammo"},"color":"white","bold":true},{"text":" / 30","color":"gray"}]
+execute if score @s ron.mode matches 0 run return run title @s actionbar [{"text":"SEMI","color":"yellow","bold":true},{"text":"  |  ","color":"dark_gray"},{"score":{"name":"@s","objective":"ron.ammo"},"color":"red","bold":true},{"text":" / 30","color":"gray"}]
+execute if score @s ron.ammo matches 6.. run return run title @s actionbar [{"text":"BURST","color":"aqua","bold":true},{"text":"  |  ","color":"dark_gray"},{"score":{"name":"@s","objective":"ron.ammo"},"color":"white","bold":true},{"text":" / 30","color":"gray"}]
+title @s actionbar [{"text":"BURST","color":"aqua","bold":true},{"text":"  |  ","color":"dark_gray"},{"score":{"name":"@s","objective":"ron.ammo"},"color":"red","bold":true},{"text":" / 30","color":"gray"}]

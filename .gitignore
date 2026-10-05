@@ -1,0 +1,4 @@
+# local-only overrides (e.g. third-party assets you own); never published
+local/
+resourcepack/assets/ron/local/
+*.zip
