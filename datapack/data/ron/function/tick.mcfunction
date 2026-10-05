@@ -1,5 +1,6 @@
 # new players start with a full magazine
 execute as @a unless score @s ron.ammo matches -2147483648..2147483647 run scoreboard players operation @s ron.ammo = #mag_size ron.const
+execute as @a unless score @s ron.mode matches -2147483648..2147483647 run scoreboard players set @s ron.mode 0
 # right-click
 execute as @a[scores={ron.use=1..}] at @s run function ron:trigger
 # timers
