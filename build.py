@@ -39,14 +39,14 @@ w = weapons[0]
 put("consts", "".join(f"scoreboard players set #{k} ron.const {w[k]}\n" for k in
     ["mag_size","reload_ticks","cooldown_semi","burst_cooldown"])
     + f"scoreboard players set #range_steps ron.const {w['range_blocks']*2}\n")
+lore = ["Right-click: fire", "Sneak + right-click: fire mode", "Right-click when empty: reload"]
+lore_s = ",".join("'" + json.dumps({"text": t, "color": "gray", "italic": False}) + "'" for t in lore)
+name_s = "'" + json.dumps({"text": w["name"], "color": "gold", "italic": False}) + "'"
+# 1.21.4 takes text components as quoted JSON strings (SNBT text arrived in 1.21.5)
 put("give", f'give @s {w["base_item"]}[minecraft:item_model="{w["item_model"]}",'
-    f'minecraft:item_name={{"text":"{w["name"]}","color":"gold"}},'
-    f'minecraft:custom_data={{ron_weapon:"{w["id"]}"}},minecraft:max_stack_size=1,'
-    f'minecraft:lore=[{{"text":"Right-click: fire","color":"gray","italic":false}},'
-    f'{{"text":"Sneak + right-click: fire mode","color":"gray","italic":false}},'
-    f'{{"text":"Right-click when empty: reload","color":"gray","italic":false}}]] 1\n')
-
-put("damage", f"damage @s {w['damage']} minecraft:player_attack by @a[tag=ron.shooter,limit=1]\n")
+    f'minecraft:item_name={name_s},minecraft:custom_data={{ron_weapon:"{w["id"]}"}},'
+    f'minecraft:max_stack_size=1,minecraft:lore=[{lore_s}]] 1\n')
+put("damage", f"damage @s {w['damage']} ron:bullet by @e[tag=ron.shooter,limit=1]\n")
 put("recoil", f"rotate @s ~ ~-{w['recoil_pitch_tenths']/10}\n")
 
 # ---- placeholder item texture (original art, written without any image lib) ----

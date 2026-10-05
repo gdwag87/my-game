@@ -16,3 +16,12 @@ Ready or Not–inspired tactical shooter mashup for Minecraft: Java. First featu
 ## Assets
 All art and sound are original/vanilla placeholders. No Ready or Not assets are included, and none should be
 committed: a published Melty release is downloaded by every player.
+
+## Install note
+The pack adds a custom damage type (`ron:bullet`, so rapid bursts aren't swallowed by Minecraft's hit cooldown).
+Damage types load when a world opens, so **add the data pack, then close and reopen the world** (a plain `/reload` isn't enough the first time).
+
+## Tested (Minecraft 1.21.4 dedicated server + scripted test player)
+Give command, right-click fire, damage, wall blocking, ammo count, recoil, SEMI/BURST toggle (sneak + right-click),
+3-round burst damage, empty -> reload -> 30 rounds, action-bar HUD text, `setup_range`. Not tested: how the model/sounds
+look and sound in a real client.
