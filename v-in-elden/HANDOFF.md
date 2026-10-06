@@ -20,3 +20,6 @@ Publishing uses Melty's tools (list_my_mods, create_mod, start_upload, submit_re
 - Stage 0 DLL (plugin/): loads, waits for the game window, logs to v_in_elden.log next to the DLL, logs ability key presses. Touches no game memory.
   Build: `python3 gen.py && cd plugin && cargo xwin build --release --target x86_64-pc-windows-msvc`.
 - Draft recipe (melty.recipe.draft.json): validate_recipe = valid, one click yes. Unverified: does ModEngine2 load our DLL from that config? -> play once through Melty, then read {managed}/modengine2/v_in_elden.log.
+- Melty draft (PRIVATE, never publish unless the user says so): "V in the Lands Between", modId e6b29b58-38de-4ffc-9426-90e047745810,
+  Studio https://melty.gg/studio/e6b29b58-38de-4ffc-9426-90e047745810. Release 0.0.1 = draft, one click yes, awaiting the user's Test.
+  User wants V's real assets: convert them from the user's own Cyberpunk install on their PC only; nothing from either game is uploaded.
