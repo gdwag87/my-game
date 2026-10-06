@@ -3,8 +3,8 @@
  "rows": [
   {
    "id": "loader",
-   "how": "ModEngine2 (Melty-installed) loads v_in_elden.dll via external_dlls in our config_eldenring.toml mapped to {managed}/modengine2; validate_recipe: valid, one click yes; layout unverified until played via Melty",
-   "source": "Melty game_info + ER Mario recipe",
+   "how": "Bundled ModEngine2 2.1.0 (MIT) in {managed}/me2, launched by the recipe with -c our config_eldenring.toml and -p {game}/Game/eldenring.exe. (0.0.1 lesson: Melty's shared ModEngine2 in Melty/mods/loaders/modengine2 reads only its own config with external_dlls=[]; files mapped to {managed}/modengine2 are never read.)",
+   "source": "user's ModEngine2 log 2026-10-06 + ModEngine2 launcher.cpp (-c/-p options)",
    "verified": false
   },
   {

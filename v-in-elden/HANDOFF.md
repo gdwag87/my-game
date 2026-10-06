@@ -23,3 +23,6 @@ Publishing uses Melty's tools (list_my_mods, create_mod, start_upload, submit_re
 - Melty draft (PRIVATE, never publish unless the user says so): "V in the Lands Between", modId e6b29b58-38de-4ffc-9426-90e047745810,
   Studio https://melty.gg/studio/e6b29b58-38de-4ffc-9426-90e047745810. Release 0.0.1 = draft, one click yes, awaiting the user's Test.
   User wants V's real assets: convert them from the user's own Cyberpunk install on their PC only; nothing from either game is uploaded.
+- 0.0.1 test: Melty installed + launched, but our DLL never loaded (Melty's shared ModEngine2 at %APPDATA%/Melty/mods/loaders/modengine2 used its own config).
+- 0.0.2 (draft, one click yes): bundles ModEngine2 2.1.0 (MIT, credited) in {managed}/me2 and launches it with our config. Build: `python3 package.py 0.0.2`.
+  Our managed folder on the user's PC: %APPDATA%/Melty/mods/managed/v-in-the-lands-between/ -> log expected at me2/v_in_elden.log.
