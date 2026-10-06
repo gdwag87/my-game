@@ -1,0 +1,18 @@
+[package]
+name = "v_in_elden"
+version = "0.0.1"
+edition = "2021"
+description = "V in the Lands Between - stage 0: loader/log/input probe (touches no game memory)"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+windows-sys = { version = "0.59", features = [
+  "Win32_Foundation", "Win32_System_SystemServices", "Win32_System_Threading",
+  "Win32_System_LibraryLoader", "Win32_UI_WindowsAndMessaging", "Win32_UI_Input_KeyboardAndMouse",
+] }
+
+[profile.release]
+panic = "abort"
+lto = true

@@ -1,11 +1,65 @@
 {
-  "_doc": "Every place the plugin touches Elden Ring. verified=true only after it was confirmed in the running game.",
-  "rows": [
-    {"id":"load_via_modengine2", "kind":"dll",   "target":"ModEngine2 config_eldenring.toml external_dlls", "verified":false},
-    {"id":"read_player_state",   "kind":"memory","target":"player position/velocity/stamina",               "verified":false},
-    {"id":"apply_speffect",      "kind":"call",  "target":"apply a SpEffect to the player",                  "verified":false},
-    {"id":"play_animation",      "kind":"call",  "target":"trigger an animation on the player",              "verified":false},
-    {"id":"time_scale",          "kind":"memory","target":"world/player time scale (Sandevistan)",           "verified":false},
-    {"id":"read_input",          "kind":"input", "target":"poll keys without conflicting with ER",           "verified":false}
-  ]
+ "_doc": "Every place the plugin touches Elden Ring. source = where the method comes from. verified=true only after it ran in the player's game (exe 2.7.1.0). Field note = universal-modder knowledge/games/elden-ring/cs2-conversion...md (2026-10-03, exe 2.7.1.0).",
+ "rows": [
+  {
+   "id": "loader",
+   "how": "ModEngine2 (Melty-installed) loads v_in_elden.dll via external_dlls in our config_eldenring.toml mapped to {managed}/modengine2; validate_recipe: valid, one click yes; layout unverified until played via Melty",
+   "source": "Melty game_info + ER Mario recipe",
+   "verified": false
+  },
+  {
+   "id": "boot_gate",
+   "how": "wait for visible game window, then a fresh fromsoftware-rs reflection scan; never touch singletons from DllMain",
+   "source": "field note gotcha 1-2",
+   "verified": false
+  },
+  {
+   "id": "read_input",
+   "how": "hook DirectInput GetDeviceState; read our keys, blank them for the game",
+   "source": "field note",
+   "verified": false
+  },
+  {
+   "id": "kinematic_controller",
+   "how": "write CSChrPhysicsModule position + chr_proxy_pos_update_requested after physics; Havok ray casts (CSPhysWorld::cast_ray, filter 0x2000058); hand back control for ladders/mount/death",
+   "source": "field note",
+   "verified": false
+  },
+  {
+   "id": "no_scripted_fall_death",
+   "how": "while our controller drives: gravity_multiplier=0, gravity_disabled=true; restore after; apply own landing damage",
+   "source": "field note gotcha 3",
+   "verified": false
+  },
+  {
+   "id": "engine_bullet",
+   "how": "CSBulletManager::spawn_bullet with our own Bullet/Atk rows appended to the player's regulation.bin (life >= 2 frames)",
+   "source": "field note gotcha 7",
+   "verified": false
+  },
+  {
+   "id": "time_scale",
+   "how": null,
+   "source": null,
+   "verified": false
+  },
+  {
+   "id": "stamina",
+   "how": "PlayerGameData stamina fields",
+   "source": "field note (PlayerGameData holds HP/FP/stamina)",
+   "verified": false
+  },
+  {
+   "id": "overlay_hud",
+   "how": "hudhook (DX12) ImGui overlay",
+   "source": "field note",
+   "verified": false
+  },
+  {
+   "id": "log",
+   "how": "plugin writes its own log next to the DLL (the test oracle)",
+   "source": "field note",
+   "verified": false
+  }
+ ]
 }

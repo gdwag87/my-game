@@ -1,0 +1,7 @@
+{"schemaVersion":1,"mode":"installed",
+ "games":[{"slug":"elden-ring","role":"primary","version":">=2.7.1.0 <=2.7.1.1"},{"slug":"cyberpunk-2077","role":"secondary"}],
+ "components":[{"id":"main","fileName":"V-in-Elden-*.zip","label":"Main files","kind":"main","required":true}],
+ "requirements":[{"kind":"loader","id":"modengine2"}],
+ "mappings":[{"component":"main","from":"v_in_elden.dll","to":"{managed}/modengine2"},
+             {"component":"main","from":"config_eldenring.toml","to":"{managed}/modengine2"}],
+ "launch":{"kind":"game"}}

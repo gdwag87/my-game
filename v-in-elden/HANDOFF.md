@@ -14,3 +14,9 @@ Next steps on the PC: (1) find install folders of Elden Ring and Cyberpunk; (2) 
 working example; (3) set up universal-modder (github.com/rehan-remade/universal-modder, skills/mod-any-game/SKILL.md);
 (4) fill the sheet cells from the game; (5) build stage 1 as a DLL loaded through ModEngine2; (6) test via Melty's Test button.
 Publishing uses Melty's tools (list_my_mods, create_mod, start_upload, submit_release...). Token is NOT stored here.
+
+## Progress (cloud session, 2026-10-06)
+- Field note found: universal-modder knowledge/games/elden-ring/cs2-conversion-*.md (same pattern: other game's character/movement in ER via native Rust DLL). Sheets updated from it.
+- Stage 0 DLL (plugin/): loads, waits for the game window, logs to v_in_elden.log next to the DLL, logs ability key presses. Touches no game memory.
+  Build: `python3 gen.py && cd plugin && cargo xwin build --release --target x86_64-pc-windows-msvc`.
+- Draft recipe (melty.recipe.draft.json): validate_recipe = valid, one click yes. Unverified: does ModEngine2 load our DLL from that config? -> play once through Melty, then read {managed}/modengine2/v_in_elden.log.

@@ -1,11 +1,11 @@
 {
-  "_doc": "One row per V ability. null = not yet known/verified; preflight lists every null. Elden Ring ids must be read from the game, never guessed.",
+  "_doc": "One row per V ability. null = unknown; preflight lists every null. mechanism names a row in hooks.json. Elden Ring ids are never guessed: copy_from_row must be read from the player's regulation.bin.",
   "rows": [
-    {"id":"dash",        "stage":1, "name":"Dash",         "key":"dash",   "cooldown_s":1.0,  "stamina_cost":15, "er_anim":null,  "er_speffect":null, "hud":"hud_dash",   "snd":"snd_dash"},
-    {"id":"double_jump", "stage":1, "name":"Double Jump",  "key":"jump",   "cooldown_s":0.0,  "stamina_cost":10, "er_anim":null,  "er_speffect":null, "hud":null,         "snd":"snd_jump"},
-    {"id":"wall_run",    "stage":1, "name":"Wall Run",     "key":"jump",   "cooldown_s":0.0,  "stamina_cost":5,  "er_anim":null,  "er_speffect":null, "hud":null,         "snd":null},
-    {"id":"sandevistan", "stage":2, "name":"Sandevistan",  "key":"slowmo", "cooldown_s":20.0, "stamina_cost":0,  "er_anim":null,  "er_speffect":null, "hud":"hud_sande",  "snd":"snd_sande"},
-    {"id":"mantis",      "stage":2, "name":"Mantis Blades","key":"blades", "cooldown_s":0.5,  "stamina_cost":20, "er_anim":null,  "er_speffect":null, "hud":"hud_blades", "snd":"snd_blades"},
-    {"id":"gorilla",     "stage":2, "name":"Gorilla Arms", "key":"smash",  "cooldown_s":3.0,  "stamina_cost":35, "er_anim":null,  "er_speffect":null, "hud":"hud_smash",  "snd":"snd_smash"}
+    {"id":"dash",        "stage":1, "name":"Dash",          "key":"dash",   "mechanism":"kinematic_controller", "cooldown_s":1.0,  "stamina_cost":15, "distance_m":6.0, "duration_s":0.18, "copy_from_row":"n/a", "hud":"hud_dash",   "snd":"snd_dash"},
+    {"id":"double_jump", "stage":1, "name":"Double Jump",   "key":"jump",   "mechanism":"kinematic_controller", "cooldown_s":0.0,  "stamina_cost":10, "distance_m":2.2, "duration_s":0.35, "copy_from_row":"n/a", "hud":"n/a",        "snd":"snd_jump"},
+    {"id":"wall_run",    "stage":1, "name":"Wall Run",      "key":"jump",   "mechanism":"kinematic_controller", "cooldown_s":0.0,  "stamina_cost":5,  "distance_m":8.0, "duration_s":1.2,  "copy_from_row":"n/a", "hud":"n/a",        "snd":"n/a"},
+    {"id":"sandevistan", "stage":2, "name":"Sandevistan",   "key":"slowmo", "mechanism":"time_scale",           "cooldown_s":20.0, "stamina_cost":0,  "distance_m":0.0, "duration_s":6.0,  "copy_from_row":"n/a", "hud":"hud_sande",  "snd":"snd_sande"},
+    {"id":"mantis",      "stage":2, "name":"Mantis Blades", "key":"blades", "mechanism":"engine_bullet",        "cooldown_s":0.5,  "stamina_cost":20, "distance_m":2.5, "duration_s":0.03, "copy_from_row":null,  "hud":"hud_blades", "snd":"snd_blades"},
+    {"id":"gorilla",     "stage":2, "name":"Gorilla Arms",  "key":"smash",  "mechanism":"engine_bullet",        "cooldown_s":3.0,  "stamina_cost":35, "distance_m":3.0, "duration_s":0.03, "copy_from_row":null,  "hud":"hud_smash",  "snd":"snd_smash"}
   ]
 }
