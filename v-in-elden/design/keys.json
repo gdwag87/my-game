@@ -1,0 +1,11 @@
+{
+  "_doc": "One row per action key. Default binds must not collide with Elden Ring defaults (checked against the game's keybind file on the PC).",
+  "rows": [
+    {"id":"dash",   "default":"LeftAlt", "collides_with_er":null},
+    {"id":"jump",   "default":"Space",   "collides_with_er":null},
+    {"id":"slowmo", "default":"V",       "collides_with_er":null},
+    {"id":"blades", "default":"B",       "collides_with_er":null},
+    {"id":"smash",  "default":"N",       "collides_with_er":null},
+    {"id":"menu",   "default":"F6",      "collides_with_er":null}
+  ]
+}

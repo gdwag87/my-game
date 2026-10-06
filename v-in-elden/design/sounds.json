@@ -1,0 +1,10 @@
+{
+  "_doc": "One row per sound cue. source: 'er' = reuse an Elden Ring cue id (read from game), 'v' = Cyberpunk cue read from player's own install at first Play. Nothing ships.",
+  "rows": [
+    {"id":"snd_dash",   "source":"er", "cue":null},
+    {"id":"snd_jump",   "source":"er", "cue":null},
+    {"id":"snd_sande",  "source":"v",  "cue":null},
+    {"id":"snd_blades", "source":"v",  "cue":null},
+    {"id":"snd_smash",  "source":"v",  "cue":null}
+  ]
+}

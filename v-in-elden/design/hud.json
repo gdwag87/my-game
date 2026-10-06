@@ -1,0 +1,9 @@
+{
+  "_doc": "One row per HUD element (stage 3 draws these). Cyberpunk-style, original art only.",
+  "rows": [
+    {"id":"hud_dash",   "anchor":"bottom-left", "style":"cooldown_ring", "label":"DASH"},
+    {"id":"hud_sande",  "anchor":"bottom-left", "style":"cooldown_ring", "label":"SANDEVISTAN"},
+    {"id":"hud_blades", "anchor":"bottom-left", "style":"cooldown_ring", "label":"MANTIS"},
+    {"id":"hud_smash",  "anchor":"bottom-left", "style":"cooldown_ring", "label":"GORILLA"}
+  ]
+}

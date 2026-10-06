@@ -1,0 +1,11 @@
+{
+  "_doc": "Every place the plugin touches Elden Ring. verified=true only after it was confirmed in the running game.",
+  "rows": [
+    {"id":"load_via_modengine2", "kind":"dll",   "target":"ModEngine2 config_eldenring.toml external_dlls", "verified":false},
+    {"id":"read_player_state",   "kind":"memory","target":"player position/velocity/stamina",               "verified":false},
+    {"id":"apply_speffect",      "kind":"call",  "target":"apply a SpEffect to the player",                  "verified":false},
+    {"id":"play_animation",      "kind":"call",  "target":"trigger an animation on the player",              "verified":false},
+    {"id":"time_scale",          "kind":"memory","target":"world/player time scale (Sandevistan)",           "verified":false},
+    {"id":"read_input",          "kind":"input", "target":"poll keys without conflicting with ER",           "verified":false}
+  ]
+}
