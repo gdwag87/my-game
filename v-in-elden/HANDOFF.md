@@ -26,3 +26,7 @@ Publishing uses Melty's tools (list_my_mods, create_mod, start_upload, submit_re
 - 0.0.1 test: Melty installed + launched, but our DLL never loaded (Melty's shared ModEngine2 at %APPDATA%/Melty/mods/loaders/modengine2 used its own config).
 - 0.0.2 (draft, one click yes): bundles ModEngine2 2.1.0 (MIT, credited) in {managed}/me2 and launches it with our config. Build: `python3 package.py 0.0.2`.
   Our managed folder on the user's PC: %APPDATA%/Melty/mods/managed/v-in-the-lands-between/ -> log expected at me2/v_in_elden.log.
+- 0.0.2 TESTED by the user (2026-10-06): ModEngine2 loaded v_in_elden.dll from our config; window gate 0.3 s; all 6 keys logged. Melty: "tested".
+- 0.1.0 (draft, one click yes): stage 1 = dash (Left Alt) + double jump (F airborne) in plugin/src/movement.rs, ChrIns_PostPhysics task.
+  IMPORTANT: crates.io eldenring 0.14.0 only supports exe 2.6.2.0; we pin git vswarte/fromsoftware-rs@59fbd3b (Ww2710 / Jp2711).
+  Panics in the task are caught (panic=unwind) and disable movement for the session. Awaiting the user's test + log.

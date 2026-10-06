@@ -5,17 +5,17 @@
    "id": "loader",
    "how": "Bundled ModEngine2 2.1.0 (MIT) in {managed}/me2, launched by the recipe with -c our config_eldenring.toml and -p {game}/Game/eldenring.exe. (0.0.1 lesson: Melty's shared ModEngine2 in Melty/mods/loaders/modengine2 reads only its own config with external_dlls=[]; files mapped to {managed}/modengine2 are never read.)",
    "source": "user's ModEngine2 log 2026-10-06 + ModEngine2 launcher.cpp (-c/-p options)",
-   "verified": false
+   "verified": true
   },
   {
    "id": "boot_gate",
-   "how": "wait for visible game window, then a fresh fromsoftware-rs reflection scan; never touch singletons from DllMain",
+   "how": "wait for visible game window, then a fresh fromsoftware-rs reflection scan; never touch singletons from DllMain [window gate verified 2026-10-06: visible after 0.3 s; reflection-scan part not yet]",
    "source": "field note gotcha 1-2",
    "verified": false
   },
   {
    "id": "read_input",
-   "how": "hook DirectInput GetDeviceState; read our keys, blank them for the game",
+   "how": "hook DirectInput GetDeviceState; read our keys, blank them for the game [polling via GetAsyncKeyState verified 2026-10-06 for all 6 keys; DirectInput blanking not yet]",
    "source": "field note",
    "verified": false
   },
@@ -59,7 +59,7 @@
    "id": "log",
    "how": "plugin writes its own log next to the DLL (the test oracle)",
    "source": "field note",
-   "verified": false
+   "verified": true
   }
  ]
 }

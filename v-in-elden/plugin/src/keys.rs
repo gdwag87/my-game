@@ -2,7 +2,7 @@
 pub struct Key { pub id: &'static str, pub name: &'static str, pub vk: u16 }
 pub const KEYS: [Key; 6] = [
     Key { id: "dash", name: "LeftAlt", vk: 0xA4 },
-    Key { id: "jump", name: "Space", vk: 0x20 },
+    Key { id: "jump", name: "F", vk: 0x46 },
     Key { id: "slowmo", name: "V", vk: 0x56 },
     Key { id: "blades", name: "B", vk: 0x42 },
     Key { id: "smash", name: "N", vk: 0x4E },

@@ -1,8 +1,8 @@
 [package]
 name = "v_in_elden"
-version = "0.0.1"
+version = "0.1.0"
 edition = "2021"
-description = "V in the Lands Between - stage 0: loader/log/input probe (touches no game memory)"
+description = "V in the Lands Between - stage 1: dash + double jump"
 
 [lib]
 crate-type = ["cdylib"]
@@ -14,5 +14,10 @@ windows-sys = { version = "0.59", features = [
 ] }
 
 [profile.release]
-panic = "abort"
+panic = "unwind"
 lto = true
+
+[target."cfg(windows)".dependencies]
+eldenring = { git = "https://github.com/vswarte/fromsoftware-rs", rev = "59fbd3b3b7daaf14aca47c9f73530493dba6bc79" }
+fromsoftware-shared = { git = "https://github.com/vswarte/fromsoftware-rs", rev = "59fbd3b3b7daaf14aca47c9f73530493dba6bc79" }
+glam = "0.30"

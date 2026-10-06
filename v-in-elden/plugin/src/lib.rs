@@ -1,4 +1,4 @@
-//! Stage 0 of "V in the Lands Between".
+//! "V in the Lands Between" plugin. Stage 0 (verified): loader, log, key polling. Stage 1: movement.rs.
 //! Proves three hooks.json rows on the player's PC without touching game memory:
 //!   loader  - ModEngine2 loads this DLL into eldenring.exe
 //!   log     - we write v_in_elden.log next to the DLL (the test oracle)
@@ -12,6 +12,8 @@ use windows_sys::Win32::{
 };
 
 mod keys; // generated from design/keys.json by gen.py
+mod abilities; // generated from design/abilities.json by gen.py
+mod movement;
 
 static mut MODULE: HMODULE = std::ptr::null_mut();
 
@@ -23,7 +25,7 @@ fn log_path() -> PathBuf {
     p
 }
 
-fn log(msg: &str) {
+pub(crate) fn log(msg: &str) {
     if let Ok(mut f) = OpenOptions::new().create(true).append(true).open(log_path()) {
         let _ = writeln!(f, "{msg}");
     }
@@ -54,6 +56,28 @@ fn run() {
         if start.elapsed() > Duration::from_secs(300) { log("[boot] no game window after 300 s, giving up"); return; }
     }
     log(&format!("[boot] game window visible after {:.1} s", start.elapsed().as_secs_f32()));
+    // stage 1: register our per-frame task after physics (fresh reflection scan happens inside wait_for_instance)
+    use eldenring::cs::{CSTaskGroupIndex, CSTaskImp};
+    use fromsoftware_shared::SharedTaskImpExt;
+    match CSTaskImp::wait_for_instance(Duration::from_secs(600)) {
+        Ok(task) => {
+            let mut mv = movement::Movement::default();
+            let mut disabled = false;
+            let handle = task.run_recurring(move |data: &eldenring::fd4::FD4TaskData| {
+                if disabled { return; }
+                // a bug in our code must never take the game down: log it and switch movement off
+                let r = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| mv.tick(data)));
+                if let Err(e) = r {
+                    let msg = e.downcast_ref::<&str>().map(|s| s.to_string()).or_else(|| e.downcast_ref::<String>().cloned()).unwrap_or_default();
+                    log(&format!("[error] movement panicked, disabled for this session: {msg}"));
+                    disabled = true;
+                }
+            }, CSTaskGroupIndex::ChrIns_PostPhysics);
+            std::mem::forget(handle); // keep the task registered for the whole session
+            log("[boot] movement task registered (ChrIns_PostPhysics)");
+        }
+        Err(e) => log(&format!("[boot] CSTaskImp not available: {e:?} - movement disabled")),
+    }
     let mut was_down = [false; keys::KEYS.len()];
     loop {
         for (i, k) in keys::KEYS.iter().enumerate() {
